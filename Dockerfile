@@ -10,9 +10,9 @@ RUN aptitude install --no-gui -y virtuoso-opensource
 RUN python3 -m pip install --upgrade pip
 RUN ufw allow 'Nginx HTTP'
 
-WORKDIR /NS/
-RUN git clone https://github.com/Amfgcp/NS/tree/NS_typon
+
 RUN service service virtuoso-opensource-6.1 status
+RUN service service virtuoso-opensource-6.1 restart
 
 #route app and virtuoso in nginx to 80 port
 RUN cp myconf.conf /etc/nginx/sites-available/
@@ -21,4 +21,8 @@ RUN rm /etc/nginx/sites-sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/myconf.conf /etc/nginx/sites-enabled/
 RUN service nginx restart
 
-#
+# setup the app
+WORKDIR /NS/
+RUN git clone https://github.com/Amfgcp/NS/tree/NS_typon
+RUN pip3 install -r ./NS_typon/requirements.txt
+RUN 'python3 -m venv flask'
