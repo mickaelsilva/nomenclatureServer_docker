@@ -2,7 +2,8 @@ FROM ubuntu:18.04
 MAINTAINER UMMI
 LABEL email="ummimicro@medicina.ulisboa.pt"
 
-RUN apt-get update && \
+RUN DEBIAN_FRONTEND=noninteractive \
+    apt-get update && \
     apt-get install -y p7zip-full aptitude nginx redis-server postgresql git python3 python3-pip wget screen && \
     apt-get autoclean -y
     
@@ -25,4 +26,4 @@ RUN service nginx restart
 WORKDIR /NS/
 RUN git clone https://github.com/Amfgcp/NS/tree/NS_typon
 RUN pip3 install -r ./NS_typon/requirements.txt
-RUN 'python3 -m venv flask'
+#RUN 'python3 -m venv flask'
