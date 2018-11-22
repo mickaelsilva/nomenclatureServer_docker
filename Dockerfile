@@ -2,7 +2,6 @@ FROM ubuntu:16.04
 MAINTAINER UMMI
 LABEL email="ummimicro@medicina.ulisboa.pt"
 
-RUN 
 RUN apt-get update &&\
     apt-get install -y p7zip-full aptitude nginx redis-server postgresql git python3 python3-pip wget screen && \
     apt-get autoclean -y
