@@ -2,8 +2,7 @@ FROM ubuntu:18.04
 MAINTAINER UMMI
 LABEL email="ummimicro@medicina.ulisboa.pt"
 
-RUN DEBIAN_FRONTEND=noninteractive \
-    apt-get update && \
+RUN apt-get update && locale-gen --purge en_US.UTF-8 && DEBIAN_FRONTEND="noninteractive" dpkg-reconfigure locales && update-locale LANG=en_US.UTF-8 LANGUAGE=en_US && \
     apt-get install -y p7zip-full aptitude nginx redis-server postgresql git python3 python3-pip wget screen && \
     apt-get autoclean -y
     
