@@ -8,7 +8,7 @@ RUN apt-get update &&\
     
 RUN DEBIAN_FRONTEND=noninteractive aptitude install --no-gui -y virtuoso-opensource
 RUN python3 -m pip install --upgrade pip
-RUN ufw allow 'Nginx HTTP'
+#RUN ufw allow 'Nginx HTTP'
 
 
 RUN service service virtuoso-opensource-6.1 status
