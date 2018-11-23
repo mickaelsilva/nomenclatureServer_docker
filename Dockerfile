@@ -27,5 +27,5 @@ RUN git clone https://github.com/Amfgcp/NS/tree/NS_typon
 RUN pip3 install -r ./NS_typon/requirements.txt
 
 COPY ./NS_typon/virtuoso.db /var/lib/virtuoso-opensource-6.1/db/
-RUN service service virtuoso-opensource-6.1 start
+RUN service virtuoso-opensource-6.1 start
 #RUN 'python3 -m venv flask'
