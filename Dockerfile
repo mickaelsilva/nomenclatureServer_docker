@@ -22,15 +22,15 @@ WORKDIR /NS/
 RUN pwd
 RUN ls
 RUN git clone https://github.com/B-UMMI/NS-1
-RUN pip3 install -r ./NS_typon/requirements.txt
+RUN pip3 install -r ./Nomenclature_Server/requirements.txt
 
 #route app and virtuoso in nginx to 80 port
-COPY ./NS_typon/myconf.conf /etc/nginx/sites-available/
+COPY ./Nomenclature_Server/myconf.conf /etc/nginx/sites-available/
 RUN rm /etc/nginx/sites-available/default
 RUN rm /etc/nginx/sites-sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/myconf.conf /etc/nginx/sites-enabled/
 RUN service nginx restart
 
-COPY ./NS_typon/virtuoso.db /var/lib/virtuoso-opensource-6.1/db/
+COPY ./Nomenclature_Server/virtuoso.db /var/lib/virtuoso-opensource-6.1/db/
 RUN service virtuoso-opensource-6.1 start
 #RUN 'python3 -m venv flask'
