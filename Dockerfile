@@ -6,7 +6,7 @@ RUN apt-get update &&\
     apt-get install -y p7zip-full aptitude nginx redis-server postgresql git python3 python3-pip wget screen && \
     apt-get autoclean -y
     
-RUN aptitude install --no-gui -y virtuoso-opensource
+RUN DEBIAN_FRONTEND=noninteractive aptitude install --no-gui -y virtuoso-opensource
 RUN python3 -m pip install --upgrade pip
 RUN ufw allow 'Nginx HTTP'
 
