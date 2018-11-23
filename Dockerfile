@@ -14,17 +14,21 @@ RUN python3 -m pip install --upgrade pip
 #RUN service virtuoso-opensource-6.1 status
 #RUN service service virtuoso-opensource-6.1 restart
 
+
+
+# setup the app
+WORKDIR /NS/
+RUN pwd
+RUN ls
+RUN git clone https://github.com/Amfgcp/NS/tree/NS_typon
+RUN pip3 install -r ./NS_typon/requirements.txt
+
 #route app and virtuoso in nginx to 80 port
-RUN cp myconf.conf /etc/nginx/sites-available/
+RUN cp ./NS_typon/myconf.conf /etc/nginx/sites-available/
 RUN rm /etc/nginx/sites-available/default
 RUN rm /etc/nginx/sites-sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/myconf.conf /etc/nginx/sites-enabled/
 RUN service nginx restart
-
-# setup the app
-WORKDIR /NS/
-RUN git clone https://github.com/Amfgcp/NS/tree/NS_typon
-RUN pip3 install -r ./NS_typon/requirements.txt
 
 COPY ./NS_typon/virtuoso.db /var/lib/virtuoso-opensource-6.1/db/
 RUN service virtuoso-opensource-6.1 start
