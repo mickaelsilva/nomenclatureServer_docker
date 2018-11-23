@@ -26,7 +26,7 @@ RUN pip3 install -r ./Nomenclature_Server/requirements.txt
 #route app and virtuoso in nginx to 80 port
 RUN cp ./Nomenclature_Server/myconf.conf /etc/nginx/sites-available/
 RUN rm /etc/nginx/sites-available/default
-RUN rm /etc/nginx/sites-sites-enabled/default
+RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/myconf.conf /etc/nginx/sites-enabled/
 RUN service nginx restart
 
