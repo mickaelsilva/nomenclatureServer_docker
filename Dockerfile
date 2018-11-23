@@ -21,6 +21,7 @@ RUN python3 -m pip install --upgrade pip
 WORKDIR /NS/
 RUN pwd
 RUN ls
+#
 RUN git clone https://github.com/B-UMMI/Nomenclature_Server
 RUN pip3 install -r ./Nomenclature_Server/requirements.txt
 
