@@ -21,7 +21,7 @@ RUN python3 -m pip install --upgrade pip
 WORKDIR /NS/
 RUN pwd
 RUN ls
-RUN git clone https://github.com/Amfgcp/NS/tree/NS_typon
+RUN git clone https://github.com/B-UMMI/NS-1
 RUN pip3 install -r ./NS_typon/requirements.txt
 
 #route app and virtuoso in nginx to 80 port
