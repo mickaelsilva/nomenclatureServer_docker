@@ -3,7 +3,7 @@ MAINTAINER UMMI
 LABEL email="ummimicro@medicina.ulisboa.pt"
 
 RUN apt-get update &&\
-    apt-get install -y p7zip-full aptitude nginx redis-server postgresql git python3 python3-pip wget screen && \
+    apt-get install -y p7zip-full aptitude nginx redis-server postgresql git python3 python3-pip wget screen ufw && \
     apt-get autoclean -y
     
 RUN DEBIAN_FRONTEND=noninteractive aptitude install --no-gui -y virtuoso-opensource
