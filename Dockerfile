@@ -17,6 +17,7 @@ RUN python3 -m pip install --upgrade pip
 
 
 # setup the app
+#RUN mkdir NS
 WORKDIR /NS/
 RUN pwd
 RUN ls
@@ -24,7 +25,7 @@ RUN git clone https://github.com/Amfgcp/NS/tree/NS_typon
 RUN pip3 install -r ./NS_typon/requirements.txt
 
 #route app and virtuoso in nginx to 80 port
-RUN cp ./NS_typon/myconf.conf /etc/nginx/sites-available/
+COPY ./NS_typon/myconf.conf /etc/nginx/sites-available/
 RUN rm /etc/nginx/sites-available/default
 RUN rm /etc/nginx/sites-sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/myconf.conf /etc/nginx/sites-enabled/
