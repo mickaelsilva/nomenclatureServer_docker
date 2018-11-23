@@ -11,7 +11,7 @@ RUN python3 -m pip install --upgrade pip
 #RUN ufw allow 'Nginx HTTP'
 
 
-RUN service virtuoso-opensource-6.1 status
+RUN virtuoso-opensource-6.1 status
 #RUN service service virtuoso-opensource-6.1 restart
 
 #route app and virtuoso in nginx to 80 port
